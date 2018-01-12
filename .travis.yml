@@ -1,1 +1,11 @@
 language: java
+
+deploy:
+  provider: releases
+  api_key: ${GH_TOKEN}
+  file:
+  - Dockerfile
+  - pom.xml
+  skip_cleanup: true
+  on:
+    tags: true
