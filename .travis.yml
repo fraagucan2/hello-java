@@ -1,5 +1,11 @@
 language: java
 
+before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "YOUR GIT USER NAME"
+      - git config --local user.email "YOUR GIT USER EMAIL"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
 deploy:
   provider: releases
   api_key: ${GH_TOKEN}
@@ -8,4 +14,4 @@ deploy:
   - pom.xml
   skip_cleanup: true
   on:
-    tags: false
+    tags: true
