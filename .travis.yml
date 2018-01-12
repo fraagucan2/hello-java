@@ -8,4 +8,4 @@ deploy:
   - pom.xml
   skip_cleanup: true
   on:
-    tags: true
+    tags: false
